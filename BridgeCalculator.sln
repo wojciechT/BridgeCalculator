@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "BridgeCalculator", "BridgeCalculator.fsproj", "{DC22B85A-EFCF-4E07-8B5E-825FC939B097}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BridgeCalculator.Tests", "BridgeCalculator.Tests\BridgeCalculator.Tests.fsproj", "{0FD5ACBA-7C02-4E18-9802-A4054DC5C1A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC22B85A-EFCF-4E07-8B5E-825FC939B097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC22B85A-EFCF-4E07-8B5E-825FC939B097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC22B85A-EFCF-4E07-8B5E-825FC939B097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC22B85A-EFCF-4E07-8B5E-825FC939B097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FD5ACBA-7C02-4E18-9802-A4054DC5C1A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FD5ACBA-7C02-4E18-9802-A4054DC5C1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FD5ACBA-7C02-4E18-9802-A4054DC5C1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FD5ACBA-7C02-4E18-9802-A4054DC5C1A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3625591-7509-4C2C-B325-5E836E6F54F9}
+	EndGlobalSection
+EndGlobal
