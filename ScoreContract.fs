@@ -19,18 +19,18 @@ module ScoreContract =
         | ot when ot < 7 -> points + 1250       // Vulnerable game and slam
         | _              -> points + 2000       // Vulnerable game and grand slam
 
-    let private applyInvulnerableBonus declaredTricks points =
+    let private applyNonvulnerableBonus declaredTricks points =
         match declaredTricks with
-        | ot when ot < 6 -> points + 300        // Invulnerable game
-        | ot when ot < 7 -> points + 800        // Invulnerable game and slam
-        | _              -> points + 1300       // Invulnerable game and grand slam
+        | ot when ot < 6 -> points + 300        // nonvulnerable game
+        | ot when ot < 7 -> points + 800        // nonvulnerable game and slam
+        | _              -> points + 1300       // nonvulnerable game and grand slam
 
     let private applyImmediateBonus vulnerable declaredTricks points =
         match vulnerable, points with
         | _, p when p < 100 -> p + 50
         | v, _ -> match v with
                   | true -> applyVulnerableBonus declaredTricks points
-                  | false -> applyInvulnerableBonus declaredTricks points
+                  | false -> applyNonvulnerableBonus declaredTricks points
     let private applyInsultBonus doubled points =
         match doubled with
         | N  -> points
@@ -65,18 +65,27 @@ module ScoreContract =
            | false -> (*) 1
            | true -> (*) 2
 
-    let private scoreDoubledInvulnerableFailure undertricks = 0
-    let private scoreDoubledVulnerableFailure undertricks = 0
+    let private scoreDoubledNonvulnerableFailure undertricks = 
+        match undertricks with
+        | x when x > -2  -> -100
+        | x when x > -4  -> -100 + (x+1) * 200
+        | x              -> -500 + (x+3) * 300
+
+    let private scoreDoubledVulnerableFailure undertricks =
+        match undertricks with
+        | x when x > -2  -> -200
+        | x              -> -200 + (x+1) * 300
 
     let private scoreDoubledFailure undertricks vulnerable =
         match vulnerable with
-        | false -> scoreDoubledInvulnerableFailure undertricks
+        | false -> scoreDoubledNonvulnerableFailure undertricks
         | true -> scoreDoubledVulnerableFailure undertricks
 
     let private countFailure undertricks contract = 
         match contract.Doubled with
-        | N -> scoreUndoubledFailure undertricks contract.Vulnerable
-        | X -> scoreDoubledFailure undertricks contract.Vulnerable
+        | N  -> scoreUndoubledFailure undertricks contract.Vulnerable
+        | X  -> scoreDoubledFailure undertricks contract.Vulnerable
+        | XX -> (scoreDoubledFailure undertricks contract.Vulnerable) * 2
 
     let score (handResult :  HandResult) = 
         match handResult.Tricks with

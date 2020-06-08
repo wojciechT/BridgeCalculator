@@ -70,6 +70,7 @@ module ScoreContractTests =
 
         Assert.Equal(-1300, result)
 
+    [<Fact>]
     let ``1NTX-3 should be scored -500`` () =
         let contract = {Declarer = North; DeclaredSuit = NT; DeclaredTricks = 1; Vulnerable = false; Doubled = X }
         let handResult = {DeclaredContract = contract; Tricks = -3}
@@ -77,3 +78,12 @@ module ScoreContractTests =
         let result = score handResult
 
         Assert.Equal(-500, result)
+    
+    [<Fact>]
+    let ``4NTXX-9 vulnerable should be scored -5200`` () =
+        let contract = {Declarer = North; DeclaredSuit = NT; DeclaredTricks = 4; Vulnerable = true; Doubled = XX }
+        let handResult = {DeclaredContract = contract; Tricks = -9}
+
+        let result = score handResult
+
+        Assert.Equal(-5200, result)
