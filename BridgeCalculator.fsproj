@@ -7,6 +7,7 @@
     <Compile Include="Types.fs" />
     <Compile Include="ScoreContract.fs" />
     <Compile Include="CalculateImps.fs" />
+    <Compile Include="ScoreTraveller.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
