@@ -1,4 +1,4 @@
-namespace BridgeCalculator
+namespace BridgeCalculator.Core
 
 module ScoreTraveller = 
 

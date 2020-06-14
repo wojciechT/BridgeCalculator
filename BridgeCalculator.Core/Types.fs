@@ -1,4 +1,4 @@
-﻿namespace BridgeCalculator
+﻿namespace BridgeCalculator.Core
 
 [<AutoOpen>]
 module Types =
@@ -8,19 +8,19 @@ module Types =
         | East
         | West
 
+    type VulnerablePosition = None | NS | EW | Both
+
     type Suit = C | D | H | S | NT
 
     type Double = N | X | XX
-
-    //type ImmediateBonus
-   
+  
     type Contract =
         {
             Declarer : Position
-            DeclaredSuit : Suit
             DeclaredTricks : int
-            Vulnerable : bool
+            DeclaredSuit : Suit
             Doubled : Double
+            Vulnerable : bool
         }
 
     type HandResult =
@@ -32,7 +32,7 @@ module Types =
     type Pair = 
         {
             Id : int
-            PlayerNames : string * string
+            PlayerNames : string
         }
 
     type TravellerEntry =
@@ -45,6 +45,7 @@ module Types =
     type Traveller = 
         {
             BoardNumber : int
+            Vulnerability: VulnerablePosition
             Entries: TravellerEntry list
         }
 

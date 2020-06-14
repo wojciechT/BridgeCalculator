@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30011.22
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "BridgeCalculator", "BridgeCalculator.fsproj", "{DC22B85A-EFCF-4E07-8B5E-825FC939B097}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BridgeCalculator.Web", "BridgeCalculator.Web\BridgeCalculator.Web.fsproj", "{5883B149-B845-46E1-AE21-B0ECBEC10BCF}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BridgeCalculator.Tests", "BridgeCalculator.Tests\BridgeCalculator.Tests.fsproj", "{0FD5ACBA-7C02-4E18-9802-A4054DC5C1A9}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BridgeCalculator.Core", "BridgeCalculator.Core\BridgeCalculator.Core.fsproj", "{0CD15FFF-7370-4E87-ABBA-6722C50DCA59}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "BridgeCalculator.Core.Tests", "BridgeCalculator.Core.Tests\BridgeCalculator.Core.Tests.fsproj", "{9794662A-72E7-4406-ADB6-75BFC9EF8D79}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BridgeCalculator.Data.Sqlite", "BridgeCalculator.Data.Sqlite\BridgeCalculator.Data.Sqlite.fsproj", "{02F2F458-7901-421E-8D22-B334A74A326A}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BridgeCalculator.Cli", "BridgeCalculator.Cli\BridgeCalculator.Cli.fsproj", "{64156543-347F-4A23-A948-CF527C460636}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +19,31 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DC22B85A-EFCF-4E07-8B5E-825FC939B097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC22B85A-EFCF-4E07-8B5E-825FC939B097}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC22B85A-EFCF-4E07-8B5E-825FC939B097}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC22B85A-EFCF-4E07-8B5E-825FC939B097}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0FD5ACBA-7C02-4E18-9802-A4054DC5C1A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0FD5ACBA-7C02-4E18-9802-A4054DC5C1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0FD5ACBA-7C02-4E18-9802-A4054DC5C1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0FD5ACBA-7C02-4E18-9802-A4054DC5C1A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5883B149-B845-46E1-AE21-B0ECBEC10BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5883B149-B845-46E1-AE21-B0ECBEC10BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5883B149-B845-46E1-AE21-B0ECBEC10BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5883B149-B845-46E1-AE21-B0ECBEC10BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CD15FFF-7370-4E87-ABBA-6722C50DCA59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CD15FFF-7370-4E87-ABBA-6722C50DCA59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CD15FFF-7370-4E87-ABBA-6722C50DCA59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CD15FFF-7370-4E87-ABBA-6722C50DCA59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9794662A-72E7-4406-ADB6-75BFC9EF8D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9794662A-72E7-4406-ADB6-75BFC9EF8D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9794662A-72E7-4406-ADB6-75BFC9EF8D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9794662A-72E7-4406-ADB6-75BFC9EF8D79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02F2F458-7901-421E-8D22-B334A74A326A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02F2F458-7901-421E-8D22-B334A74A326A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02F2F458-7901-421E-8D22-B334A74A326A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02F2F458-7901-421E-8D22-B334A74A326A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64156543-347F-4A23-A948-CF527C460636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64156543-347F-4A23-A948-CF527C460636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64156543-347F-4A23-A948-CF527C460636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64156543-347F-4A23-A948-CF527C460636}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D3625591-7509-4C2C-B325-5E836E6F54F9}
+		SolutionGuid = {6A3EF220-9CB9-4123-AE04-0321134EFF25}
 	EndGlobalSection
 EndGlobal

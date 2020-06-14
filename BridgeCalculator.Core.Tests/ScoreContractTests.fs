@@ -1,10 +1,10 @@
-namespace BridgeCalculator.Tests
+namespace BridgeCalculator.Core.Tests
 
 open System
 open Xunit
 
-open BridgeCalculator.Types
-open BridgeCalculator.ScoreContract
+open BridgeCalculator.Core.Types
+open BridgeCalculator.Core.ScoreContract
 
 module ScoreContractTests =
     [<Fact>]

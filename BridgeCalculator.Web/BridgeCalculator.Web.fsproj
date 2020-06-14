@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="ViewModels.fs" />
+    <Compile Include="Mapping.fs" />
+    <Compile Include="Controllers\PairController.fs" />
+    <Compile Include="Startup.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BridgeCalculator.Core\BridgeCalculator.Core.fsproj" />
+  </ItemGroup>
+
+</Project>

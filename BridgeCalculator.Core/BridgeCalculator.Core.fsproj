@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Types.fs" />
+    <Compile Include="Mapping.fs" />
+    <Compile Include="PairService.fs" />
+    <Compile Include="CalculateImps.fs" />
+    <Compile Include="ScoreContract.fs" />
+    <Compile Include="ScoreTraveller.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BridgeCalculator.Data.Sqlite\BridgeCalculator.Data.Sqlite.fsproj" />
+  </ItemGroup>
+
+</Project>
