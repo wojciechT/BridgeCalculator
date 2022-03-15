@@ -15,7 +15,7 @@ open BridgeCalculator.Web.ViewModels
 
 [<ApiController>]
 [<Route("[controller]")>]
-type PairController (logger : ILogger<PairController>) =
+type TravellerController (logger : ILogger<TravellerController>) =
     inherit ControllerBase()
 
     [<HttpGet>]
@@ -25,7 +25,6 @@ type PairController (logger : ILogger<PairController>) =
         |> Seq.toArray
 
     [<HttpPost>]
-    member x.Post([<FromForm>] pair: PairViewModel) =
-        pair
-        |> mapPairViewModelToPair
-        |> PairService.addPair
+    member x.Post([<FromBody>] entry: TravellerEntryViewModel) =
+        printfn "%O" entry
+        "ok"

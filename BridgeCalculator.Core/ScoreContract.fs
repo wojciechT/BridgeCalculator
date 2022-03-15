@@ -45,7 +45,7 @@ module ScoreContract =
         | XX, true            -> points + overtricks * 400
         
 
-    let private countSuccess overtricks contract = 
+    let private countSuccess overtricks (contract : Contract) = 
         let multiplier = 
             match contract.DeclaredSuit with
             | C | D -> 20
@@ -81,13 +81,15 @@ module ScoreContract =
         | false -> scoreDoubledNonvulnerableFailure undertricks
         | true -> scoreDoubledVulnerableFailure undertricks
 
-    let private countFailure undertricks contract = 
+    let private countFailure undertricks (contract : Contract) = 
         match contract.Doubled with
         | N  -> scoreUndoubledFailure undertricks contract.Vulnerable
         | X  -> scoreDoubledFailure undertricks contract.Vulnerable
         | XX -> (scoreDoubledFailure undertricks contract.Vulnerable) * 2
 
     let score (handResult :  HandResult) = 
-        match handResult.Tricks with
-        | ot when ot >= 0 -> countSuccess ot handResult.DeclaredContract
-        | _ -> countFailure handResult.Tricks handResult.DeclaredContract
+        match handResult.DeclaredContract.DeclaredTricks with
+        | t when t = 0 -> 0
+        | _ -> match handResult.Tricks with
+                | ot when ot >= 0 -> countSuccess ot handResult.DeclaredContract
+                | _ -> countFailure handResult.Tricks handResult.DeclaredContract

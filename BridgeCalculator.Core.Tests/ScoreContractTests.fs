@@ -8,6 +8,16 @@ open BridgeCalculator.Core.ScoreContract
 
 module ScoreContractTests =
     [<Fact>]
+    let ``0H+0 should be scored 0`` () =
+        let contract = {Declarer = North; DeclaredSuit = H; DeclaredTricks = 0; Vulnerable = false; Doubled = N }
+        let handResult = {DeclaredContract = contract; Tricks = -1}
+
+        let result = score handResult
+
+        Assert.Equal(0, result)
+
+    
+    [<Fact>]
     let ``2H+1 should be scored 140`` () =
         let contract = {Declarer = North; DeclaredSuit = H; DeclaredTricks = 2; Vulnerable = false; Doubled = N }
         let handResult = {DeclaredContract = contract; Tricks = 1}

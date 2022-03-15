@@ -8,6 +8,7 @@
     <Compile Include="ViewModels.fs" />
     <Compile Include="Mapping.fs" />
     <Compile Include="Controllers\PairController.fs" />
+    <Compile Include="Controllers\TravellerController.fs" />
     <Compile Include="Startup.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

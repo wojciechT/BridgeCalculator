@@ -30,6 +30,8 @@ type Startup private () =
         //app.UseHttpsRedirection() |> ignore
         app.UseRouting() |> ignore
 
+        app.UseCors(fun x -> x.AllowAnyHeader().AllowAnyHeader().AllowAnyOrigin() |> ignore ) |> ignore
+
         app.UseAuthorization() |> ignore
 
         app.UseEndpoints(fun endpoints ->

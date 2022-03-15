@@ -11,3 +11,14 @@ module ViewModels =
             Doubled : string;
             Vulnerable : bool;
         }
+
+    type [<CLIMutable>] TravellerEntryViewModel =
+        {
+            boardNumber : int;
+            vulnerable : string;
+            nsPair : int;
+            ewPair : int;
+            contract : string;
+            declarer : string;
+            result : int;
+        }

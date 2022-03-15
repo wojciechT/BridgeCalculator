@@ -67,17 +67,17 @@ module ReadTraveller =
 
         {DeclaredContract = declaredContract; Tricks = tricks}
 
-    let private readTravellerEntry vulnerablePosition = 
+    let private readTravellerEntry pairs vulnerablePosition = 
         printf "NS pair number: "
-        let nsPair = { Id = 1; PlayerNames = "test, test" }
+        let nsPair = Console.ReadLine() |> int |> fun i -> Map.find i pairs
         printf "EW pair number: "
-        let ewPair = { Id = 2; PlayerNames = "test, test" }
+        let ewPair = Console.ReadLine() |> int |> fun i -> Map.find i pairs
 
         let handResult = readHandResult vulnerablePosition
 
         {NSPair = nsPair; EWPair = ewPair; Result = handResult}
 
-    let read () = 
+    let read rounds pairs = 
         printf "Enter board number: "
         let boardNumber = Console.ReadLine() |> int
 
@@ -93,9 +93,8 @@ module ReadTraveller =
                 | "b"  -> Both
                 | _    -> failwith "Unrecognized vulnerable position"
 
-        printf "Enter number of rounds: "
-        let entriesCount = Console.ReadLine() |> int
+
         
-        let entries = List.init entriesCount (fun _ -> readTravellerEntry vulnerablePosition)
+        let entries = List.init rounds (fun _ -> readTravellerEntry pairs vulnerablePosition)
 
         {BoardNumber = boardNumber; Vulnerability = vulnerablePosition; Entries = entries}

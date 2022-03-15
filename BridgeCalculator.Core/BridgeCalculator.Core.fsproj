@@ -1,20 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
-
   <ItemGroup>
+    <!-- <None Include="traveller.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None> -->
     <Compile Include="Types.fs" />
     <Compile Include="Mapping.fs" />
     <Compile Include="PairService.fs" />
     <Compile Include="CalculateImps.fs" />
+    <Compile Include="ParseTravellerEntries.fs" />
     <Compile Include="ScoreContract.fs" />
     <Compile Include="ScoreTraveller.fs" />
+    <Compile Include="CsvOutput.fs" />
+    <Compile Include="Program.fs" />
   </ItemGroup>
-
+  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="FSharp.Data" Version="3.3.3" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BridgeCalculator.Data.Sqlite\BridgeCalculator.Data.Sqlite.fsproj" />
   </ItemGroup>
-
 </Project>
