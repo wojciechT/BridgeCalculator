@@ -18,7 +18,9 @@ module ViewModels =
             vulnerable : string;
             nsPair : int;
             ewPair : int;
-            contract : string;
+            declaredTricks : int;
+            suit : string;
+            doubled: string;
             declarer : string;
-            result : int;
+            tricks : int;
         }

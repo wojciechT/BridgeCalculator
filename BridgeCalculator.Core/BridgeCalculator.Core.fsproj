@@ -8,10 +8,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None> -->
     <Compile Include="Types.fs" />
+    <Compile Include="InProcessData.fs" />
+    <Compile Include="TravellerProcessingUtils.fs" />
     <Compile Include="Mapping.fs" />
     <Compile Include="PairService.fs" />
     <Compile Include="CalculateImps.fs" />
     <Compile Include="ParseTravellerEntries.fs" />
+    <Compile Include="ProcessFlatTravellerEntries.fs" />
     <Compile Include="ScoreContract.fs" />
     <Compile Include="ScoreTraveller.fs" />
     <Compile Include="CsvOutput.fs" />

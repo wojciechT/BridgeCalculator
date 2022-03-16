@@ -26,21 +26,29 @@ module Mapping =
         | "w" -> West
         | x -> failwithf "Unrecognized declarer string %s" x
 
+    let mapSuitStringToSuit(suit : string) : Suit =
+        match suit.ToLowerInvariant() with
+        | "c" -> C
+        | "d" -> D
+        | "h" -> H
+        | "s" -> S
+        | "n" -> NT
+        | x -> failwithf "Unrecognized suit string %s" x
+
+    let mapDoubleStringToDoubled(doubled : string) : Double =
+        match doubled.ToLowerInvariant() with
+        | "n" -> N
+        | "x" -> X
+        | "xx" -> XX
+        | x -> failwithf "Unrecognized double string %s" x
+
     let mapTravellerEntryViewModelToFlatTravellerEntry(entry : TravellerEntryViewModel) : FlatTravellerEntry =
         { BoardNumber = entry.boardNumber; 
           Vulnerability = entry.vulnerable |> mapVulnerabilityStringToVulnerablePosition; 
           NSPair = entry.nsPair;
           EWPair = entry.ewPair;
           Declarer = entry.declarer |> mapDeclarerStringToPosition;
-          DeclaredTricks = entry}
-
-            BoardNumber : int
-            Vulnerability: VulnerablePosition
-            NSPair : int
-            EWPair : int
-            Declarer : Position
-            DeclaredTricks : int
-            DeclaredSuit : Suit
-            Doubled : Double
-            Vulnerable : bool
-            Tricks : int
+          DeclaredTricks = entry.declaredTricks;
+          DeclaredSuit = entry.suit |> mapSuitStringToSuit;
+          Doubled = entry.doubled |> mapDoubleStringToDoubled;
+          Tricks = entry.tricks }

@@ -3,6 +3,7 @@ namespace BridgeCalculator.Core
 open FSharp.Data
 
 open BridgeCalculator.Core.Types
+open BridgeCalculator.Core.TravellerProcessingUtils
 
 module ParseTravellerEntries =
 
@@ -48,26 +49,6 @@ module ParseTravellerEntries =
         | "e" -> East
         | "w" -> West
         | x   -> failwithf "Unrecognized declarer: %s" x
-
-    let private checkVulnerability declarer vulnerable =
-        match vulnerable, declarer with
-        | None, _   -> false
-        | Both, _   -> true
-        | NS, North -> true
-        | NS, South -> true
-        | EW, East  -> true
-        | EW, West  -> true
-        | _         -> false
-
-    let private groupFullTravellerEntriesToTravellers (entries : FullTravellerEntry seq) =
-        entries
-        |> Seq.groupBy(fun e -> e.BoardNumber, e.Vulnerability)
-        |> Seq.map (fun bpe -> 
-            let bp, fullEntries = bpe
-            let entries = 
-                fullEntries
-                |> Seq.toList
-            {BoardNumber = fst bp; Vulnerability = snd bp; Entries = entries})
 
     let parseTravellerEntries =
         let path = System.IO.Directory.GetCurrentDirectory();

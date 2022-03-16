@@ -18,6 +18,10 @@ open BridgeCalculator.Web.ViewModels
 type TravellerController (logger : ILogger<TravellerController>) =
     inherit ControllerBase()
 
+    let printProcessed processed =
+        processed
+        |> Seq.iter (printfn "%O")
+
     [<HttpGet>]
     member x.Get() : PairViewModel[] =
         PairService.getPairs ()
@@ -26,5 +30,16 @@ type TravellerController (logger : ILogger<TravellerController>) =
 
     [<HttpPost>]
     member x.Post([<FromBody>] entry: TravellerEntryViewModel) =
-        printfn "%O" entry
-        "ok"
+        entry
+        |> mapTravellerEntryViewModelToFlatTravellerEntry
+        |> (fun x -> (x.BoardNumber, x.NSPair), x)
+        |> InProcessData.addOrUpdateEntry
+
+        let processed = 
+            InProcessData.entries.Values
+            |> ProcessFlatTravellerEntries.processFlatTravellers
+            |> Seq.collect( ScoreTraveller.score )
+
+        printProcessed processed
+
+        processed

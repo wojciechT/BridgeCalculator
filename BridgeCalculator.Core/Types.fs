@@ -69,7 +69,6 @@ module Types =
             DeclaredTricks : int
             DeclaredSuit : Suit
             Doubled : Double
-            Vulnerable : bool
             Tricks : int
         }
 
